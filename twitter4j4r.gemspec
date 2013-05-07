@@ -2,7 +2,7 @@
 require File.expand_path('../lib/twitter4j4r/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "incomeplte-twitter4j4r"
+  gem.name          = "incomplete-twitter4j4r"
   gem.version       = Twitter4j4r::VERSION
   gem.authors       = ["Tobias Crawley", "Marek Jelen", "Thomas Claridge"]
   gem.email         = ["toby@tcrawley.org", "", "thomas.claridge@incompletepackets.co.nz"]
