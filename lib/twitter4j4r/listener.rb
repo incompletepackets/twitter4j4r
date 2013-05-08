@@ -25,7 +25,7 @@ module Twitter4j4r
       call_block_with_client(@limitation_block, limited_count)
     end
 
-    def onDeletionBlock(notice)
+    def onDeletionNotice(notice)
       call_block_with_client(@deletion_block, notice)
     end
 
