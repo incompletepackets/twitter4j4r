@@ -5,6 +5,7 @@ module Twitter4j4r
     def initialize
       @config = Java::Twitter4jConf::ConfigurationBuilder.new
       @config.setDebugEnabled true
+      @config.setJSONStoreEnabled true
     end
 
     def consumer_key= consumer_key
