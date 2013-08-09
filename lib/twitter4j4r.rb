@@ -1,6 +1,6 @@
 require 'twitter4j4r/client'
 require 'twitter4j4r/config'
-require 'jar/twitter4j-core-2.2.6.jar'
+require 'jar/twitter4j-core-3.0.3.jar'
 require 'json'
 
 

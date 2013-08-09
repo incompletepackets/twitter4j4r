@@ -15,3 +15,12 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+
+.vagrant/
+Berksfile
+Berksfile.lock
+cookbooks/
+Vagrantfile
+
+twitter4j4r.sublime-project
+twitter4j4r.sublime-workspace
