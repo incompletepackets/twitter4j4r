@@ -25,11 +25,11 @@ module Twitter4j4r
     end
 
     def username= username
-      @config.setUser username
+      raise "As of API v1.1, authorizing using username/password is not longer an option."
     end
 
     def password= password
-      @config.setPassword password
+      raise "As of API v1.1, authorizing using username/password is not longer an option."
     end
 
     def build
