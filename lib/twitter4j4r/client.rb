@@ -2,7 +2,7 @@ require 'jar/twitter4j-core-3.0.3.jar'
 require 'jar/twitter4j-stream-3.0.3.jar'
 require 'jar/twitter4j-async-3.0.3.jar'
 
-require 'twitter4j4r/listener'
+require 'twitter4j4r/public-listener'
 require 'twitter4j4r/config'
 
 module Twitter4j4r
@@ -52,7 +52,7 @@ module Twitter4j4r
 
     def add_listener(&block)
       on_status(&block)
-      @stream.addListener(Listener.new(self, @status_block, @exception_block, @limitation_block, @deletion_block))
+      @stream.addListener(PublicListener.new(self, @status_block, @exception_block, @limitation_block, @deletion_block))
     end
 
     def stop

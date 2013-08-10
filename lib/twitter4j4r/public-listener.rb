@@ -2,7 +2,7 @@ require 'jar/twitter4j-stream-3.0.3.jar'
 require 'jruby/core_ext'
 
 module Twitter4j4r
-    class Listener
+  class PublicListener
     include Java::Twitter4j::StatusListener
 
     def initialize(client, status_block, exception_block, limitation_block, deletion_block)
@@ -36,4 +36,4 @@ module Twitter4j4r
   end
 end
 
-Twitter4j4r::Listener.become_java!
+Twitter4j4r::PublicListener.become_java!
