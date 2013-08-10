@@ -2,8 +2,8 @@ require 'jar/twitter4j-core-3.0.3.jar'
 require 'jar/twitter4j-stream-3.0.3.jar'
 require 'jar/twitter4j-async-3.0.3.jar'
 
-require 'twitter4j4r/listener/public-listener'
-require 'Twitter4j4r/listener/user-listener'
+require 'twitter4j4r/stream/public-listener'
+require 'Twitter4j4r/stream/user-listener'
 
 module Twitter4j4r
   class Stream
