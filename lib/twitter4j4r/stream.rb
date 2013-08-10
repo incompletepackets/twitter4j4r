@@ -32,7 +32,7 @@ module Twitter4j4r
       on_notice(:delete, block)
     end
 
-    def on_notice(block_name, &block)
+    def on_notice(block_name, block)
       @blocks[block_name] = block
       self
     end
