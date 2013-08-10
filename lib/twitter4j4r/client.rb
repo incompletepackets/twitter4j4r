@@ -24,5 +24,6 @@ module Twitter4j4r
     def add_stream(stream)
       stream.start(@config)
       @streams << stream
+    end
   end
 end
