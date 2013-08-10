@@ -8,7 +8,8 @@ require 'twitter4j4r/stream/user-listener'
 module Twitter4j4r
   class Stream
 
-    def initialize 
+    def initialize(config)
+      @stream = Java::Twitter4j::TwitterStreamFactory.new(config).instance 
       @blocks = { }
     end
 
@@ -47,10 +48,6 @@ module Twitter4j4r
       on_status(&block)  
       @stream.addListener(PublicListener.new(self, @blocks))
       @stream.sample
-    end
-
-    def start(config)
-      @stream = Java::Twitter4j::TwitterStreamFactory.new(config).instance
     end
 
     def stop

@@ -18,12 +18,13 @@ module Twitter4j4r
       end
 
       @config = config.build
-      @streams = [ ]
+      @streams = { }
     end
 
-    def add_stream(stream)
-      stream.start(@config)
-      @streams << stream
+    def add_stream name
+      stream = Twitter4j4r::Stream.new @config
+      @streams[name] = stream
+      stream
     end
   end
 end
