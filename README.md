@@ -30,7 +30,7 @@ Create a configuration object and a client:
     config.access_token         = 'ABC456'
     config.access_token_secret  = 'ABC456'
     
-    client = Twitter4j4r::Client.new @config 
+    client = Twitter4j4r::Client.new config 
 
 To access the sample stream:
 

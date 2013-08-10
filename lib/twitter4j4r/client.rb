@@ -26,5 +26,9 @@ module Twitter4j4r
       @streams[name] = stream
       stream
     end
+
+    def stream name
+      @streams[name]
+    end
   end
 end
