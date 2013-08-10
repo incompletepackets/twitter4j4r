@@ -22,33 +22,29 @@ Or install it yourself as:
 
 ## Usage
 
-Create a configuration object:
+Create a configuration object and a client:
 
-    @config = Twitter4j4r::Config.new
-    @config.username = 'username'
-    @config.password = 'password'
+    config = Twitter4j4r::Config.new
+    config.consumer_key         = 'ABC456'
+    config.consumer_secret      = 'ABC456'
+    config.access_token         = 'ABC456'
+    config.access_token_secret  = 'ABC456'
     
-    @client = Twitter4j4r::Client.new @config
-
-Or with OAuth:
-
-    @config = Twitter4j4r::Config.new
-    @config.consumer_key         = 'ABC456'
-    @config.consumer_secret      = 'ABC456'
-    @config.access_token         = 'ABC456'
-    @config.access_token_secret  = 'ABC456'
-    
-    @client = Twitter4j4r::Client.new @config 
+    client = Twitter4j4r::Client.new @config 
 
 To access the sample stream:
 
-    @client.sample do |tweet|
+    stream = client.add_stream :insert_stream_name_here
+
+    stream.sample do |tweet|
       puts "#{tweet.user.screen_name} says \"#{tweet.text}\""
     end
 
 Tracking a keyword:
     
-    @client.track('bieber') do |tweet|
+    stream = client.add_stream :insert_stream_name_here
+
+    stream.track('bieber') do |tweet|
       puts "#{tweet.user.screen_name} says #{tweet.text}"
     end
 
