@@ -2,7 +2,7 @@ require 'jar/twitter4j-core-3.0.3.jar'
 require 'jar/twitter4j-stream-3.0.3.jar'
 require 'jar/twitter4j-async-3.0.3.jar'
 
-require 'twitter4j4r/public-listener'
+require 'twitter4j4r/stream'
 require 'twitter4j4r/config'
 
 module Twitter4j4r
@@ -17,47 +17,12 @@ module Twitter4j4r
         config.access_token_secret  = auth_map[:access_secret]
       end
 
-      @stream = Java::Twitter4j::TwitterStreamFactory.new(config.build).instance
+      @config = config.build
+      @streams = [ ]
     end
 
-    def on_exception(&block)
-      @exception_block = block
-      self
-    end
-
-    def on_limitation(&block)
-      @limitation_block = block
-      self
-    end
-
-    def on_status(&block)
-      @status_block = block
-      self
-    end
-
-    def on_deletion(&block)
-      @deletion_block = block
-      self
-    end
-
-    def track(*terms, &block)
-      add_listener(&block)
-      @stream.filter(Java::Twitter4j::FilterQuery.new(0, nil, search_terms.to_java(:string)))
-    end
-    
-    def sample(&block)
-      add_listener(&block)
-      @stream.sample
-    end
-
-    def add_listener(&block)
-      on_status(&block)
-      @stream.addListener(PublicListener.new(self, @status_block, @exception_block, @limitation_block, @deletion_block))
-    end
-
-    def stop
-      @stream.cleanUp
-      @stream.shutdown
-    end
+    def add_stream(stream)
+      stream.start(@config)
+      @streams << stream
   end
 end
